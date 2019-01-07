@@ -20,11 +20,11 @@ using Microsoft.Azure.WebJobs.Host;
 namespace PlayerOfTheDay
 {
     
-    /// Azure functionality that runs the application every morning at 8am
+    /// Azure functionality that runs the application every morning at 8am (UTC)
     public static class Function1
     {
         [FunctionName("Function1")]
-        public static void Run([TimerTrigger("* * 8 * * *")]TimerInfo myTimer, TraceWriter log)
+        public static void Run([TimerTrigger("0 0 8 * * *")]TimerInfo myTimer, TraceWriter log)
         {
             var program = new Program();
             program.Run();
